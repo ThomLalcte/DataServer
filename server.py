@@ -1,3 +1,4 @@
+from ctypes import sizeof
 from os import name
 import threading
 import socket
@@ -6,7 +7,6 @@ import json as js
 from datetime import datetime as dt
 from datetime import timedelta as dtd
 
-import matplotlib.pyplot as plt
 import calendar as cal
 
 #slep handler
@@ -103,11 +103,31 @@ class slepHandler (threading.Thread):
                         y.append(i+g)
                         g+=gg
 
-        plt.plot(y,x)
-        #plt.show()
-        #plt.savefig("yabro.png",dpi=250)
-        plt.savefig("C:\inetpub\wwwroot\yabro.png",dpi=250)
-        plt.clf()
+        
+#slepdata handler
+class slepDataHandler (threading.Thread):
+    def __init__(self, date, hour, client):
+        threading.Thread.__init__(self)
+        self.date = date
+        self.hour = hour
+        self.client = client
+
+    def run(self):
+        with open("slep_data.json", "r+") as file:
+            data = js.load(file)
+            file.close()
+        try:
+            date = self.date.decode("utf-8")
+            hour = int.from_bytes(self.hour, "big")
+            for i in data[date][hour]:
+                client.send(int.to_bytes(i,4,"big",signed=False))
+                
+        except KeyError:
+            client.send(b"keyerror")
+        except IndexError:
+            client.send(b"indexerror")
+        client.shutdown(socket.SHUT_RDWR)
+        client.close()
 
 #mood handler
 class moodHandler (threading.Thread):
@@ -187,23 +207,20 @@ while True:
     try:
         client, addr = s.accept()
         content = client.recv(32)
-        client_name = client.getpeername()        
-        print("Closing connection")
+        client_name = client.getpeername()
 
         #slep handler
         if content == b"slep":
             interval = 3
-            if dt.now()<(dt.now()).replace(hour=9,minute=2) and dt.now() >= (dt.now()).replace(hour=8,minute=56):
-                client.send(int.to_bytes(((dt.now()).replace(hour=9,minute=4)-dt.now()).total_seconds(),2,"big",signed=False))
-                print(((dt.now()).replace(hour=9,minute=4)-dt.now()).total_seconds())
-            else:
-                client.send(int.to_bytes((interval-dt.now().minute%interval)*60-dt.now().second,2,"big",signed=False))
-            # client.send(int.to_bytes(1234,2,"big",signed=False))
-            # print(int.to_bytes(1234,2,"big",signed=False))
+            # if dt.now()<(dt.now()).replace(hour=9,minute=2) and dt.now() >= (dt.now()).replace(hour=8,minute=56):
+                # client.send(int.to_bytes(((dt.now()).replace(hour=9,minute=4)-dt.now()).total_seconds(),2,"big",signed=False))
+                # print(((dt.now()).replace(hour=9,minute=4)-dt.now()).total_seconds())
+            # else:
+            client.send(int.to_bytes((interval-dt.now().minute%interval)*60-dt.now().second,2,"big",signed=False))
             slepQte = client.recv(4)
             client.shutdown(socket.SHUT_RDWR)
             client.close()
-            print("slep repport: ",slepQte)#int.from_bytes(content, "big"))
+            print("slep repport: ",slepQte)
             sleph = slepHandler(int.from_bytes(slepQte, "big"))
             sleph.start()
 
@@ -247,6 +264,17 @@ while True:
             print("Ping command recived from: ",client.getpeername())
             client.close()
 
+
+        #slep data request handler
+        elif content == b"slepdata":
+            client.send(b"ok")
+            #format: (string jour, int heure, int durée_en_heures)
+            jour = client.recv(10)
+            heure = client.recv(2)
+            print("{}, {}h".format(jour.decode("utf-8"), int.from_bytes(heure, "big")))
+            slepdh = slepDataHandler(jour,heure,client)
+            slepdh.start()
+
         else:
             errors+=1
             command = content.decode("utf-8")
@@ -264,14 +292,15 @@ while True:
         lookForErrors("ConnectionResetError")
 
 #server logs
-with open("server_log_data.json", "r+") as file:
-        today = str(dt.now().year) + "-" + str(dt.now().month) + "-" + str(dt.now().day)
-        
-        data = js.load(file)
+if errors>0:
+    with open("server_log_data.json", "r+") as file:
+            today = str(dt.now().year) + "-" + str(dt.now().month) + "-" + str(dt.now().day)
+            
+            data = js.load(file)
 
-        data.update({today:[errors,errors_names]})
+            data.update({today:[errors,errors_names]})
 
-        #print(data[today][-2:])
-        file.seek(0)
-        js.dump(data, file)
-        file.close()
+            #print(data[today][-2:])
+            file.seek(0)
+            js.dump(data, file)
+            file.close()
