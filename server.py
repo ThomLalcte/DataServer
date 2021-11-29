@@ -1,13 +1,11 @@
-from ctypes import sizeof
-from os import name
 import threading
 import socket
 
 import json as js
 from datetime import datetime as dt
 from datetime import timedelta as dtd
-
-import calendar as cal
+from matplotlib import pyplot as plt
+from matplotlib import dates as pltd
 
 #slep handler
 class slepHandler (threading.Thread):
@@ -16,8 +14,8 @@ class slepHandler (threading.Thread):
         self.state = state
 
     def run(self):
-        today = str(dt.now().year) + "-" + str(dt.now().month) + "-" + str(dt.now().day)
-        r = self.state #int.from_bytes(self.state, "big") 
+        today = dt.now().strftime("%Y-%m-%d")
+        r = self.state
         with open("slep_data.json", "r+") as file:
 
             data = js.load(file)
@@ -26,7 +24,7 @@ class slepHandler (threading.Thread):
                 if len(data[today]) > dt.now().hour:
                     data[today][dt.now().hour].append(int(r))
                 else:
-                    while dt.now().hour-1 > len(data[str(dt.now().year) + "-" + str(dt.now().month) + "-" + str(dt.now().day)]):
+                    while dt.now().hour-1 > len(data[today]):
                         data[today].append([-1])
                     data[today].append([int(r)])
             else:
@@ -35,73 +33,85 @@ class slepHandler (threading.Thread):
             file.seek(0)
             js.dump(data, file)
             file.close()
-            # if dt.now().minute < 3:
-            #     self.processData()
-
+        if dt.now().minute%30<2:
+            self.processData()
         return
-
+    
     def processData(self):
-        span = 12        #étendue du graphique
-        x = []
-        y = []
-        today = str(dt.now().year) + "-" + str(dt.now().month) + "-" + str(dt.now().day)
-        now = dt.now().hour
 
         with open("slep_data.json", "r+") as file:
-            data = js.load(file)
+            filedata = js.load(file)
+            mean = round((filedata[dt.now().strftime("%Y-%m-%d")][9][1]+filedata[dt.now().strftime("%Y-%m-%d")][9][2])/2)
+            filedata[dt.now().strftime("%Y-%m-%d")][9][1]=mean
+            filedata[dt.now().strftime("%Y-%m-%d")][9][2]=mean  #45-47: pour dealler avec le bug de l'ordi qui prend plus de 3 min à reboot et crée donc des données avec un glitch
+            for i in range(len(filedata[dt.now().strftime("%Y-%m-%d")])-1): #48-50: pour compenser pour les fois où on manque 1 donné
+                while len(filedata[dt.now().strftime("%Y-%m-%d")][i])<20:
+                    filedata[dt.now().strftime("%Y-%m-%d")][i].append(filedata[dt.now().strftime("%Y-%m-%d")][i][-1])
+            file.seek(0)
+            js.dump(filedata, file)
             file.close()
+        
+        data=[]
+        time=[]
+        for i in range(20,24):
+            for ii in range(0,20):
+                data.append(filedata[(dt.now()-dtd(1)).strftime("%Y-%m-%d")][i][ii])
+                time.append((dt.now()-dtd(1)).replace(hour=i,minute=ii*3))
+        for i in range(0,dt.now().hour):
+            for ii in range(0,20):
+                data.append(filedata[dt.now().strftime("%Y-%m-%d")][i][ii])
+                time.append((dt.now()).replace(hour=i,minute=ii*3))
+        del filedata; del i; del ii
 
-        if now-span >= 0: #cas où l'interval est compris dans la journée actuelle
-            if now > len(data[today]):
-                print("Error: insuffiscient hour data to process")
 
+        gaus=[]
+        var=2
+        width=10
+        for i in range(-width,width+1):
+            gaus.append(2.71828**(-(i**2/(2*var**2)))/(var*(2*3.1415)**0.5))
+        filteredData = []
+        for i in range(width):
+            data.insert(0,data[0])
+            data.append(data[-1])
+        for i in range(width,len(data)-width):
+            ng=len(gaus)
+            tot=0
+            for ii in range(ng):
+                tot+=gaus[ii]*data[i+ii-round((ng-1)/2)]
+            filteredData.append(tot)
+        for i in range(width):
+            data.pop(0)
+            data.pop(-1)
+
+
+        deriv=[]
+        filteredData.append(filteredData[-1])
+        for i in range(len(filteredData)-1):
+            deriv.append(filteredData[i+1]-filteredData[i]+1272600)
+        filteredData.pop(-1)
+
+        # plt.plot(time,data)
+        # plt.plot(time,filteredData)
+        # plt.plot(time,deriv)
+        # plt.gca().xaxis.set_major_formatter(pltd.DateFormatter('%H:%M'))
+        # plt.show()
+
+        del data; del filteredData
+
+        toa = time[deriv.index(min(deriv))].strftime("%H:%M")   #time of arrival
+        tod = time[deriv.index(max(deriv))].strftime("%H:%M")   #time of departure
+        #tts = (time[deriv.index(max(deriv))]-time[deriv.index(min(deriv))])    #total time slept
+        with open("slep_timestamps_data.json", "r+") as file:
+            slepdata=js.load(file)
+            today = dt.now().strftime("%Y-%m-%d")
+            if today in slepdata:
+                slepdata[today]=[toa,tod]
             else:
-                for i in range(now-span,now):
-                    g = 0.0
-                    gg = 1/len(data[today][i])
-                    for key in data[today][i]: 
-                        x.append(key)
-                        y.append(i+g)
-                        g += gg
-
-        if now-span < 0:#cas où l'interval est compris entre aujourd'hui et hier
-
-            jouraregarder = str(dt.now().year) + "-" + str(dt.now().month) + "-" + str(dt.now().day-1)
-            if dt.now().day-1 == 0: #cas où le jour précédent est dans un autre mois
-                wkd, nday = cal.monthrange(dt.now().year,dt.now().month-1)
-                jouraregarder = str(dt.now().year) + "-" + str(dt.now().month-1) + "-" + str(nday)
-
-            if now > len(data[today]):
-                print("Error: insuffiscient hour data to process")
-
-            elif not jouraregarder in data:
-                print("Error: no previous day data to process")
-                
-            elif 23 > len(data[jouraregarder]):
-                print("Error: insuffiscient previous day's hour data to process")
-
-            else: 
-                for i in range(23+now-span,23):
-                    g = 0.0 #pour la graduation
-                    gg = 1/len(data[jouraregarder][i])
-
-                    for key in data[jouraregarder][i]: 
-                        x.append(key)
-                        y.append(i-23+g)
-                        g+=gg
-
-                for i in range(0,now):
-                    g = 0.0 #pour la graduation
-                    gg = 1/len(data[today][i])
-
-                    if i >= len(data[today]):
-                        print("Error: insuffiscient hour data to process")
-                        break
-
-                    for key in data[today][i]: #iteration des tranches de 5 min de l'heure i
-                        x.append(key)
-                        y.append(i+g)
-                        g+=gg
+                slepdata.update({today:[toa,tod]})
+            file.seek(0)
+            js.dump(slepdata, file)
+            file.close()
+        return
 
         
 #slepdata handler
@@ -198,11 +208,11 @@ def lookForErrors(name):
     if not present:
         errors_names.append(name)
 
-"""
+
 sleph = slepHandler(5)
 sleph.processData()
+del sleph
 
-"""
 while True:
     try:
         client, addr = s.accept()
@@ -212,15 +222,11 @@ while True:
         #slep handler
         if content == b"slep":
             interval = 3
-            # if dt.now()<(dt.now()).replace(hour=9,minute=2) and dt.now() >= (dt.now()).replace(hour=8,minute=56):
-                # client.send(int.to_bytes(((dt.now()).replace(hour=9,minute=4)-dt.now()).total_seconds(),2,"big",signed=False))
-                # print(((dt.now()).replace(hour=9,minute=4)-dt.now()).total_seconds())
-            # else:
             client.send(int.to_bytes((interval-dt.now().minute%interval)*60-dt.now().second,2,"big",signed=False))
             slepQte = client.recv(4)
             client.shutdown(socket.SHUT_RDWR)
             client.close()
-            print("slep repport: ",slepQte)
+            print("slep repport: ",slepQte)#int.from_bytes(content, "big"))
             sleph = slepHandler(int.from_bytes(slepQte, "big"))
             sleph.start()
 
@@ -264,11 +270,10 @@ while True:
             print("Ping command recived from: ",client.getpeername())
             client.close()
 
-
         #slep data request handler
         elif content == b"slepdata":
             client.send(b"ok")
-            #format: (string jour, int heure, int durée_en_heures)
+            #format: (string jour, int heure)
             jour = client.recv(10)
             heure = client.recv(2)
             print("{}, {}h".format(jour.decode("utf-8"), int.from_bytes(heure, "big")))
