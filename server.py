@@ -32,7 +32,7 @@ def saveData(client: socket):
                 data[today][dt.now().hour].append(int(r))
             else:
                 while dt.now().hour-1 > len(data[today]):
-                    data[today].append([-1])
+                    data[today].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
                 data[today].append([int(r)])
         else:
             data.update({today:[[int(r)]]})
@@ -80,10 +80,12 @@ def isThomInBed(client: socket):
     client.close()
 
 def processData():
+    today = dt.now().strftime("%Y-%m-%d")
     with open("slep_data.json", "r+") as file:
-        filedata = js.load(file)
-        mean=filedata[dt.now().strftime("%Y-%m-%d")][9][1]+filedata[dt.now().strftime("%Y-%m-%d")][9][2]
-        filedata[dt.now().strftime("%Y-%m-%d")][9][1:3]=[int(mean/2), int(mean/2)]
+        filedata:list = js.load(file)
+        if (dt.now().hour==9 and dt.now().minute==12):
+            mean=filedata[today][9][1]+filedata[today][9][2]
+            filedata[today][9][1:3]=[int(mean/2), int(mean/2)]
         file.seek(0)
         js.dump(filedata, file)
         file.close()
@@ -102,7 +104,10 @@ def processData():
             time.append((dt.now()-dtd(1)).replace(hour=i,minute=ii*3))
     for i in range(0,dt.now().hour):
         for ii in range(0,20):
-            point = filedata[dt.now().strftime("%Y-%m-%d")][i][ii]
+            try:
+                point = filedata[today][i][ii]
+            except IndexError:
+                point = -1
             if point ==-1:
                 return
             data.append(point)
@@ -225,8 +230,6 @@ while True:
             itibh = threading.Thread(isThomInBed(client))
             itibh.start()
 
-
-
         else:
             command = content.decode("utf-8")
             print("unknown command (" + command + ") from: ")
@@ -239,10 +242,10 @@ while True:
     except ConnectionResetError:
         print("Client badly closed socket")
         lookForErrors("ConnectionResetError")
-    # except Exception as exeption:
-    #     erName = exeption.__class__.__name__
-    #     print(erName,sys.exc_info()[-1].tb_lineno,exeption)
-    #     lookForErrors(erName)
+    except Exception as exeption:
+        erName = exeption.__class__.__name__
+        print(erName,sys.exc_info()[-1].tb_lineno,exeption)
+        lookForErrors(erName)
 
 #server logs
 if errors>0:
