@@ -81,11 +81,51 @@ def isThomInBed(client: socket):
 
 def processData():
     today = dt.now().strftime("%Y-%m-%d")
+    hier = (dt.now()-dtd(1)).strftime("%Y-%m-%d")
     with open("slep_data.json", "r+") as file:
-        filedata:list = js.load(file)
+        filedata:dict = js.load(file)
+        # tapon de code qui sert à réparer les données. Jespère que t content que je l'ai fait pour toi
         if (dt.now().hour==9 and dt.now().minute==12):
             mean=filedata[today][9][1]+filedata[today][9][2]
             filedata[today][9][1:3]=[int(mean/2), int(mean/2)]
+        if not hier in filedata:
+            fill = []
+            for i in range(dt.now().hour):
+                fill+=[[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]]
+            filedata.update({hier:fill})
+        if not today in filedata:
+            fill = []
+            for i in range(dt.now().hour):
+                fill+=[[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]]
+            filedata.update({today:fill})
+        if len(filedata[hier])<24:
+            for i in len(filedata[hier]):
+                while len(i)<20:
+                    i.append(-1)
+            while len(filedata[hier])<24:
+                filedata[hier].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+        for i in filedata[hier]:
+            if len(i)<20:
+                for ii in range(20-len(i)):
+                    i.append(-1)
+        if len(filedata[today])<dt.now().hour+1:
+            for i in filedata[today]:
+                while len(i)<20:
+                    i.append(-1)
+            while len(filedata[today])<dt.now().hour:
+                filedata[today].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+            filedata[today].append([-1])
+            while len(filedata[today][dt.now().hour])<int(dt.now().minute/3):
+                filedata[today][dt.now().hour].append(-1)
+        for i in filedata[today]:
+            if filedata[today].index(i)==dt.now().hour:
+                if len(i)<int(dt.now().minute/3):
+                    for ii in range(int(dt.now().minute/3)-len(i)):
+                        i.append(-1)
+                break
+            if len(i)<20:
+                for ii in range(20-len(i)):
+                    i.append(-1)
         file.seek(0)
         js.dump(filedata, file)
         file.close()
@@ -93,51 +133,61 @@ def processData():
     data=[]
     time=[]
     for i in range(20,24):
-        for ii in range(0,20):
+        for ii in range(20):
             try:
                 point = filedata[(dt.now()-dtd(1)).strftime("%Y-%m-%d")][i][ii]
             except IndexError:
                 point = -1
-            if point ==-1:
-                return
-            data.append(point)
-            time.append((dt.now()-dtd(1)).replace(hour=i,minute=ii*3))
-    for i in range(0,dt.now().hour):
-        for ii in range(0,20):
+            # except 
+            if point>10:
+                data.append(point)
+                time.append((dt.now()-dtd(1)).replace(hour=i,minute=ii*3))
+    for i in range(dt.now().hour):
+        for ii in range(20):
             try:
                 point = filedata[today][i][ii]
             except IndexError:
                 point = -1
-            if point ==-1:
-                return
-            data.append(point)
-            time.append((dt.now()).replace(hour=i,minute=ii*3))
+            if point>10:
+                data.append(point)
+                time.append((dt.now()).replace(hour=i,minute=ii*3))
 
+    if not data:
+        print("no data to process")
+        return
     deriv=derivData(filterData(data[:]))
 
-    # plt.plot(time,data)
-    # plt.plot(time,filteredData)
-    # plt.plot(time,deriv)
-    # plt.gca().xaxis.set_major_formatter(pltd.DateFormatter('%H:%M'))
-    # plt.show()
+    maxDeriv=max(deriv)
+    minDeriv=min(deriv)
+    toa = time[deriv.index(minDeriv)].strftime("%H:%M")   #time of arrival
+    tod = time[deriv.index(maxDeriv)].strftime("%H:%M")   #time of departure
+    tts = (time[deriv.index(maxDeriv)]-time[deriv.index(minDeriv)])    #total time slept
 
-    toa = time[deriv.index(min(deriv))].strftime("%H:%M")   #time of arrival
-    tod = time[deriv.index(max(deriv))].strftime("%H:%M")   #time of departure
-    #tts = (time[deriv.index(max(deriv))]-time[deriv.index(min(deriv))])    #total time slept
+    conditions=[]
+    conditions.append(tts>dtd(hours=4))
+    conditions.append(minDeriv<-5000)
+    conditions.append(minDeriv<-5000)
+    conditions.append(minDeriv>-15000)
+    conditions.append(maxDeriv>5000)
+    conditions.append(maxDeriv<15000)
+    validSleepPattern:bool = sum(conditions)==len(conditions)
+
+    # print(time[deriv.index(min(deriv))])
+    # print(time[deriv.index(max(deriv))])
+    # print(tts)
 
     with open("slep_timestamps_data.json", "r+") as file:
         slepdata=js.load(file)
-        today = dt.now().strftime("%Y-%m-%d")
         if today in slepdata:
-            if max(abs(min(deriv)),abs(max(deriv)))<1000:
-                slepdata[today]=[-1,-1]
-            else:
+            if validSleepPattern:
                 slepdata[today]=[toa,tod]
-        else:
-            if max(abs(min(deriv)),abs(max(deriv)))<1000:
-                slepdata.update({today:[-1,-1]})
             else:
+                slepdata[today]=[-1,-1]
+        else:
+            if validSleepPattern:
                 slepdata.update({today:[toa,tod]})
+            else:
+                slepdata.update({today:[-1,-1]})
         file.seek(0)
         js.dump(slepdata, file)
         file.close()
@@ -158,11 +208,11 @@ def provideData(client: socket):
         for i in range(dateDelta):
             for ii in range(hourmin,hourend):
                 if ii<0:
-                    print("{}, {}h".format(dt.strptime(date,"%Y-%m-%d")-dtd(i+1),24+ii))
+                    # print("{}, {}h".format(dt.strptime(date,"%Y-%m-%d")-dtd(i+1),24+ii))
                     for iii in data[(dt.strptime(date,"%Y-%m-%d")-dtd(i+1)).strftime("%Y-%m-%d")][24+ii]:
                         client.send(int.to_bytes(iii,4,"big",signed=True))
                 else:
-                    print("{}, {}h".format(dt.strptime(date,"%Y-%m-%d")-dtd(i),ii))
+                    # print("{}, {}h".format(dt.strptime(date,"%Y-%m-%d")-dtd(i),ii))
                     for iii in data[(dt.strptime(date,"%Y-%m-%d")-dtd(i)).strftime("%Y-%m-%d")][ii]:
                         client.send(int.to_bytes(iii,4,"big",signed=True))
     except KeyError:
@@ -180,6 +230,7 @@ def provideTimestamps(client: socket):
 
 def lookForErrors(name):
     global errors
+    global errors_names
     errors+=1
     present = False
     for error_name in errors_names:
