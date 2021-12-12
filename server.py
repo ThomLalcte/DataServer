@@ -1,3 +1,5 @@
+import contextlib
+import datetime
 import threading
 import socket
 import sys
@@ -13,7 +15,7 @@ meanLowValue = 1160574
 threshold =meanLowValue+(meanHighValue-meanLowValue)/2
 slepLastSample=0
 
-def saveData(client: socket):
+def saveData(client: socket.socket):
     interval = 3
     client.send(int.to_bytes((interval-dt.now().minute%interval)*60-dt.now().second,2,"big",signed=False))
     slepQte = client.recv(4)
@@ -73,7 +75,7 @@ def derivData(underived):
 def meanData(data):
     return sum(data)/len(data)
 
-def isThomInBed(client: socket):
+def isThomInBed(client: socket.socket):
     client.send(b"ok")
     client.send(int.to_bytes(slepLastSample<threshold,1,"big"))
     print("itib call from {}".format(client.getpeername()))
@@ -85,7 +87,7 @@ def processData():
     with open("slep_data.json", "r+") as file:
         filedata:dict = js.load(file)
         # tapon de code qui sert à réparer les données. Jespère que t content que je l'ai fait pour toi
-        if (dt.now().hour==9 and dt.now().minute==12):
+        if (dt.now().hour==10):
             mean=filedata[today][9][1]+filedata[today][9][2]
             filedata[today][9][1:3]=[int(mean/2), int(mean/2)]
         if not hier in filedata:
@@ -130,8 +132,8 @@ def processData():
         js.dump(filedata, file)
         file.close()
 
-    data=[]
-    time=[]
+    data:list[int]=[]
+    time:list[dt]=[]
     for i in range(20,24):
         for ii in range(20):
             try:
@@ -225,8 +227,22 @@ def provideData(client: socket):
         lookForErrors("indexerror")
     client.close()
 
-def provideTimestamps(client: socket):
-    pass
+def provideTimestamps(client: socket.socket):
+    print("providing slep stamps")
+    client.send(b"ok")
+    date:dt = dt.strptime(client.recv(10).decode("utf-8"),"%Y-%m-%d")
+    dateDelta = int.from_bytes(client.recv(1), "big")
+    with open("slep_timestamps_data.json", "r+") as file:
+        slepdata:dict=js.load(file)
+        file.close()
+    i:str
+    for i in range(dateDelta):
+        if slepdata[(date-dtd(i)).strftime("%Y-%m-%d")][0]==-1:
+            client.send(b"error")
+            continue
+        client.send(slepdata[(date-dtd(i)).strftime("%Y-%m-%d")][0].encode("utf-8"))
+        client.send(slepdata[(date-dtd(i)).strftime("%Y-%m-%d")][1].encode("utf-8"))
+    client.close()
 
 def lookForErrors(name):
     global errors
@@ -275,6 +291,10 @@ while True:
 
         elif content == b"slepdata":
             slepdh = threading.Thread(provideData(client))
+            slepdh.start()
+
+        elif content == b"slepstamps":
+            slepdh = threading.Thread(provideTimestamps(client))
             slepdh.start()
 
         elif content == b"isThomInBed":
