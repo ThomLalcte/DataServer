@@ -46,6 +46,53 @@ def saveData(client: socket.socket):
         processData()
     return
 
+def saveData2(client: socket.socket):
+    interval = 3
+    client.send(int.to_bytes((interval-dt.now().minute%interval)*60-dt.now().second,2,"big",signed=False))
+    slepQte = client.recv(4)
+    wiggleQte = client.recv(4)
+    client.close()
+    r = int.from_bytes(slepQte, "big")
+    w = int.from_bytes(wiggleQte, "big")
+    print("slep repport: ",r)
+    global slepLastSample
+    slepLastSample = r
+    today = dt.now().strftime("%Y-%m-%d")
+    with open("slep_data.json", "r+") as file:
+        data = js.load(file)
+        if today in data:   #aquisition de données
+            if len(data[today]) > dt.now().hour:
+                data[today][dt.now().hour].append(int(r))
+            else:
+                while dt.now().hour-1 > len(data[today]):
+                    data[today].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+                data[today].append([int(r)])
+        else:
+            data.update({today:[[int(r)]]})
+
+        file.seek(0)
+        js.dump(data, file)
+        file.close()
+
+    with open("wiggle_data.json", "r+") as file:
+        data = js.load(file)
+        if today in data:   #aquisition de données
+            if len(data[today]) > dt.now().hour:
+                data[today][dt.now().hour].append(int(w))
+            else:
+                while dt.now().hour-1 > len(data[today]):
+                    data[today].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+                data[today].append([int(w)])
+        else:
+            data.update({today:[[int(w)]]})
+
+        file.seek(0)
+        js.dump(data, file)
+        file.close()
+
+    if dt.now().minute%30<2:
+        processData()
+
 def filterData(unfiltered):
     gaus=[]
     var=5
@@ -144,7 +191,7 @@ def processData():
             if point>10:
                 data.append(point)
                 time.append((dt.now()-dtd(1)).replace(hour=i,minute=ii*3))
-    for i in range(dt.now().hour):
+    for i in range(min(dt.now().hour,14)):
         for ii in range(20):
             try:
                 point = filedata[today][i][ii]
@@ -159,9 +206,9 @@ def processData():
         return
     deriv=derivData(filterData(data[:]))
 
-    maxDeriv=max(deriv)
     minDeriv=min(deriv)
     toa = time[deriv.index(minDeriv)].strftime("%H:%M")   #time of arrival
+    maxDeriv=max(deriv[deriv.index(minDeriv):])
     tod = time[deriv.index(maxDeriv)].strftime("%H:%M")   #time of departure
     tts = (time[deriv.index(maxDeriv)]-time[deriv.index(minDeriv)])    #total time slept
 
@@ -237,11 +284,20 @@ def provideTimestamps(client: socket.socket):
         file.close()
     i:str
     for i in range(dateDelta):
-        if slepdata[(date-dtd(i)).strftime("%Y-%m-%d")][0]==-1:
-            client.send(b"error")
-            continue
-        client.send(slepdata[(date-dtd(i)).strftime("%Y-%m-%d")][0].encode("utf-8"))
-        client.send(slepdata[(date-dtd(i)).strftime("%Y-%m-%d")][1].encode("utf-8"))
+        try:
+            if slepdata[(date-dtd(i)).strftime("%Y-%m-%d")][0]==-1:
+                client.send(b"error")
+                continue
+            client.send(slepdata[(date-dtd(i)).strftime("%Y-%m-%d")][0].encode("utf-8"))
+            client.send(slepdata[(date-dtd(i)).strftime("%Y-%m-%d")][1].encode("utf-8"))
+        except KeyError:
+            client.send(b"keyerror")
+            print("keyerror",sys.exc_info()[-1].tb_lineno)
+            lookForErrors("keyerror")
+        except IndexError:
+            client.send(b"indexerror")
+            print("indexerror",sys.exc_info()[-1].tb_lineno)
+            lookForErrors("indexerror")
     client.close()
 
 def lookForErrors(name):
@@ -262,8 +318,8 @@ s.listen(0)
 errors = 0
 errors_names = [] 
 
-
-processData()
+init = threading.Thread(processData())
+init.start()
 
 while True:
     try:
@@ -275,6 +331,10 @@ while True:
             sleph = threading.Thread(saveData(client))
             sleph.start()
         
+        if content == b"slep2":
+            sleph = threading.Thread(saveData2(client))
+            sleph.start()
+
         elif content == b"stop":
             client.send(b"ok")
             client.shutdown(socket.SHUT_RDWR)
