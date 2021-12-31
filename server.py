@@ -20,7 +20,7 @@ def saveDataOld(client: socket.socket):
     global slepLastSample
     slepLastSample = r
     today = dt.now().strftime("%Y-%m-%d")
-    with open("slep_data.json", "r") as file:
+    with open("cap_data.json", "r") as file:
         data = js.load(file)
         file.close()
 
@@ -34,7 +34,7 @@ def saveDataOld(client: socket.socket):
     else:
         data.update({today:[[int(r)]]})
 
-    with open("slep_data.json", "w") as file:
+    with open("cap_data.json", "w") as file:
         js.dump(data, file)
         file.close()
     if dt.now().minute%30<2:
@@ -54,7 +54,7 @@ def saveData(client: socket.socket):
     slepLastSample = r
     today = dt.now().strftime("%Y-%m-%d")
 
-    with open("slep_data.json", "r") as file:
+    with open("cap_data.json", "r") as file:
         data = js.load(file)
         file.close()
     if today in data:   #aquisition de données
@@ -66,7 +66,7 @@ def saveData(client: socket.socket):
             data[today].append([int(r)])
     else:
         data.update({today:[[int(r)]]})
-    with open("slep_data.json", "w") as file:
+    with open("cap_data.json", "w") as file:
         js.dump(data, file)
         file.close()
 
@@ -127,7 +127,7 @@ def isThomInBed(client: socket.socket):
 def processData(date:dt=dt.today()):
     datestr = date.strftime("%Y-%m-%d")
     hier = (date-dtd(1)).strftime("%Y-%m-%d")
-    with open("slep_data.json", "r") as file:
+    with open("cap_data.json", "r") as file:
         filedata:dict = js.load(file)
         file.close()
     # tapon de code qui sert à réparer les données. Jespère que t content que je l'ai fait pour toi
@@ -172,7 +172,7 @@ def processData(date:dt=dt.today()):
         if len(i)<20:
             for ii in range(20-len(i)):
                 i.append(-1)
-    with open("slep_data.json", "w") as file:
+    with open("cap_data.json", "w") as file:
         js.dump(filedata, file)
         file.close()
 
@@ -241,8 +241,8 @@ def provideData(client: socket):
     client.send(b"ok")
     datatype:bytes = client.recv(4)
     filename = ""
-    if datatype==b"slep":
-        filename="slep_data.json"
+    if datatype==b"capp":
+        filename="cap_data.json"
     
     if datatype==b"wigg":
         filename="wiggle_data.json"
@@ -252,7 +252,7 @@ def provideData(client: socket):
     dateDelta = int.from_bytes(client.recv(1), "big")
     hourmin = int.from_bytes(client.recv(1), "big",signed=True)
     hourend = int.from_bytes(client.recv(1), "big",signed=True)
-    print("{}, {} jours de {}h à {}h".format(date, dateDelta, hourmin, hourend))
+    print("{}, {}, {} jours de {}h à {}h".format(filename, date, dateDelta, hourmin, hourend))
     with open(filename, "r") as file:
         data = js.load(file)
         file.close()
