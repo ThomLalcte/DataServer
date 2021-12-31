@@ -1,21 +1,16 @@
-import contextlib
-import datetime
 import threading
 import socket
 import sys
-
 import json as js
 from datetime import datetime as dt
 from datetime import timedelta as dtd
-# from matplotlib import pyplot as plt
-# from matplotlib import dates as pltd
 
 meanHighValue = 1276000
 meanLowValue = 1160574
 threshold =meanLowValue+(meanHighValue-meanLowValue)/2
 slepLastSample=0
 
-def saveData(client: socket.socket):
+def saveDataOld(client: socket.socket):
     interval = 3
     client.send(int.to_bytes((interval-dt.now().minute%interval)*60-dt.now().second,2,"big",signed=False))
     slepQte = client.recv(4)
@@ -25,28 +20,27 @@ def saveData(client: socket.socket):
     global slepLastSample
     slepLastSample = r
     today = dt.now().strftime("%Y-%m-%d")
-    with open("slep_data.json", "r+") as file:
-
+    with open("slep_data.json", "r") as file:
         data = js.load(file)
+        file.close()
 
-        if today in data:   #aquisition de données
-            if len(data[today]) > dt.now().hour:
-                data[today][dt.now().hour].append(int(r))
-            else:
-                while dt.now().hour-1 > len(data[today]):
-                    data[today].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
-                data[today].append([int(r)])
+    if today in data:   #aquisition de données
+        if len(data[today]) > dt.now().hour:
+            data[today][dt.now().hour].append(int(r))
         else:
-            data.update({today:[[int(r)]]})
+            while dt.now().hour-1 > len(data[today]):
+                data[today].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+            data[today].append([int(r)])
+    else:
+        data.update({today:[[int(r)]]})
 
-        file.seek(0)
+    with open("slep_data.json", "w") as file:
         js.dump(data, file)
         file.close()
     if dt.now().minute%30<2:
         processData()
-    return
 
-def saveData2(client: socket.socket):
+def saveData(client: socket.socket):
     interval = 3
     client.send(int.to_bytes((interval-dt.now().minute%interval)*60-dt.now().second,2,"big",signed=False))
     slepQte = client.recv(4)
@@ -55,38 +49,40 @@ def saveData2(client: socket.socket):
     r = int.from_bytes(slepQte, "big")
     w = int.from_bytes(wiggleQte, "big")
     print("slep repport: ",r)
+    print("wiggle repport: ",w)
     global slepLastSample
     slepLastSample = r
     today = dt.now().strftime("%Y-%m-%d")
-    with open("slep_data.json", "r+") as file:
-        data = js.load(file)
-        if today in data:   #aquisition de données
-            if len(data[today]) > dt.now().hour:
-                data[today][dt.now().hour].append(int(r))
-            else:
-                while dt.now().hour-1 > len(data[today]):
-                    data[today].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
-                data[today].append([int(r)])
-        else:
-            data.update({today:[[int(r)]]})
 
-        file.seek(0)
+    with open("slep_data.json", "r") as file:
+        data = js.load(file)
+        file.close()
+    if today in data:   #aquisition de données
+        if len(data[today]) > dt.now().hour:
+            data[today][dt.now().hour].append(int(r))
+        else:
+            while dt.now().hour-1 > len(data[today]):
+                data[today].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+            data[today].append([int(r)])
+    else:
+        data.update({today:[[int(r)]]})
+    with open("slep_data.json", "w") as file:
         js.dump(data, file)
         file.close()
 
-    with open("wiggle_data.json", "r+") as file:
+    with open("wiggle_data.json", "r") as file:
         data = js.load(file)
-        if today in data:   #aquisition de données
-            if len(data[today]) > dt.now().hour:
-                data[today][dt.now().hour].append(int(w))
-            else:
-                while dt.now().hour-1 > len(data[today]):
-                    data[today].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
-                data[today].append([int(w)])
+        file.close()
+    if today in data:   #aquisition de données
+        if len(data[today]) > dt.now().hour:
+            data[today][dt.now().hour].append(int(w))
         else:
-            data.update({today:[[int(w)]]})
-
-        file.seek(0)
+            while dt.now().hour-1 > len(data[today]):
+                data[today].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+            data[today].append([int(w)])
+    else:
+        data.update({today:[[int(w)]]})
+    with open("wiggle_data.json", "w") as file:
         js.dump(data, file)
         file.close()
 
@@ -128,82 +124,79 @@ def isThomInBed(client: socket.socket):
     print("itib call from {}".format(client.getpeername()))
     client.close()
 
-def processData():
-    today = dt.now().strftime("%Y-%m-%d")
-    hier = (dt.now()-dtd(1)).strftime("%Y-%m-%d")
-    with open("slep_data.json", "r+") as file:
+def processData(date:dt=dt.today()):
+    datestr = date.strftime("%Y-%m-%d")
+    hier = (date-dtd(1)).strftime("%Y-%m-%d")
+    with open("slep_data.json", "r") as file:
         filedata:dict = js.load(file)
-        # tapon de code qui sert à réparer les données. Jespère que t content que je l'ai fait pour toi
-        if (dt.now().hour==10):
-            mean=filedata[today][9][1]+filedata[today][9][2]
-            filedata[today][9][1:3]=[int(mean/2), int(mean/2)]
-        if not hier in filedata:
-            fill = []
-            for i in range(dt.now().hour):
-                fill+=[[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]]
-            filedata.update({hier:fill})
-        if not today in filedata:
-            fill = []
-            for i in range(dt.now().hour):
-                fill+=[[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]]
-            filedata.update({today:fill})
-        if len(filedata[hier])<24:
-            for i in len(filedata[hier]):
-                while len(i)<20:
-                    i.append(-1)
-            while len(filedata[hier])<24:
-                filedata[hier].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+        file.close()
+    # tapon de code qui sert à réparer les données. Jespère que t content que je l'ai fait pour toi
+    if (date.hour==10):
+        mean=filedata[datestr][9][1]+filedata[datestr][9][2]
+        filedata[datestr][9][1:3]=[int(mean/2), int(mean/2)]
+    if not hier in filedata:
+        fill = []
+        for i in range(date.hour):
+            fill+=[[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]]
+        filedata.update({hier:fill})
+    if not datestr in filedata:
+        fill = []
+        for i in range(date.hour):
+            fill+=[[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]]
+        filedata.update({datestr:fill})
+    if len(filedata[hier])<24:
         for i in filedata[hier]:
-            if len(i)<20:
-                for ii in range(20-len(i)):
+            while len(i)<20:
+                i.append(-1)
+        while len(filedata[hier])<24:
+            filedata[hier].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+    for i in filedata[hier]:
+        if len(i)<20:
+            for ii in range(20-len(i)):
+                i.append(-1)
+    if len(filedata[datestr])<date.hour+1:
+        for i in filedata[datestr]:
+            while len(i)<20:
+                i.append(-1)
+        while len(filedata[datestr])<date.hour:
+            filedata[datestr].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+        filedata[datestr].append([-1])
+        while len(filedata[datestr][date.hour])<int(date.minute/3):
+            filedata[datestr][date.hour].append(-1)
+    for i in filedata[datestr]:
+        if filedata[datestr].index(i)==date.hour:
+            if len(i)<int(date.minute/3):
+                for ii in range(int(date.minute/3)-len(i)):
                     i.append(-1)
-        if len(filedata[today])<dt.now().hour+1:
-            for i in filedata[today]:
-                while len(i)<20:
-                    i.append(-1)
-            while len(filedata[today])<dt.now().hour:
-                filedata[today].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
-            filedata[today].append([-1])
-            while len(filedata[today][dt.now().hour])<int(dt.now().minute/3):
-                filedata[today][dt.now().hour].append(-1)
-        for i in filedata[today]:
-            if filedata[today].index(i)==dt.now().hour:
-                if len(i)<int(dt.now().minute/3):
-                    for ii in range(int(dt.now().minute/3)-len(i)):
-                        i.append(-1)
-                break
-            if len(i)<20:
-                for ii in range(20-len(i)):
-                    i.append(-1)
-        file.seek(0)
+            break
+        if len(i)<20:
+            for ii in range(20-len(i)):
+                i.append(-1)
+    with open("slep_data.json", "w") as file:
         js.dump(filedata, file)
         file.close()
 
+    #file->dict object for analysis
     data:list[int]=[]
     time:list[dt]=[]
     for i in range(20,24):
         for ii in range(20):
             try:
-                point = filedata[(dt.now()-dtd(1)).strftime("%Y-%m-%d")][i][ii]
+                point = filedata[(date-dtd(1)).strftime("%Y-%m-%d")][i][ii]
             except IndexError:
                 point = -1
-            # except 
-            if point>10:
-                data.append(point)
-                time.append((dt.now()-dtd(1)).replace(hour=i,minute=ii*3))
-    for i in range(min(dt.now().hour,14)):
+            data.append(point)
+            time.append((date-dtd(1)).replace(hour=i,minute=ii*3))
+    for i in range(min(date.hour,14)):
         for ii in range(20):
             try:
-                point = filedata[today][i][ii]
+                point = filedata[datestr][i][ii]
             except IndexError:
                 point = -1
             if point>10:
                 data.append(point)
-                time.append((dt.now()).replace(hour=i,minute=ii*3))
+                time.append((date).replace(hour=i,minute=ii*3))
 
-    if not data:
-        print("no data to process")
-        return
     deriv=derivData(filterData(data[:]))
 
     minDeriv=min(deriv)
@@ -215,32 +208,34 @@ def processData():
     conditions=[]
     conditions.append(tts>dtd(hours=4))
     conditions.append(minDeriv<-5000)
-    conditions.append(minDeriv<-5000)
     conditions.append(minDeriv>-15000)
     conditions.append(maxDeriv>5000)
     conditions.append(maxDeriv<15000)
     validSleepPattern:bool = sum(conditions)==len(conditions)
 
-    # print(time[deriv.index(min(deriv))])
-    # print(time[deriv.index(max(deriv))])
-    # print(tts)
+    onlyValidSamples=-1!=min(data[:])
 
-    with open("slep_timestamps_data.json", "r+") as file:
+    with open("slep_timestamps_data.json", "r") as file:
         slepdata=js.load(file)
-        if today in slepdata:
-            if validSleepPattern:
-                slepdata[today]=[toa,tod]
-            else:
-                slepdata[today]=[-1,-1]
+        file.close()
+    if datestr in slepdata:
+        if validSleepPattern:
+            slepdata[datestr]=[toa,tod]
+        elif not onlyValidSamples:
+            slepdata[datestr]=[-1]
         else:
-            if validSleepPattern:
-                slepdata.update({today:[toa,tod]})
-            else:
-                slepdata.update({today:[-1,-1]})
+            slepdata[datestr]=conditions
+    else:
+        if validSleepPattern:
+            slepdata.update({datestr:[toa,tod]})
+        elif not onlyValidSamples:
+            slepdata.update({datestr:[-1]})
+        else:
+            slepdata.update({datestr:conditions})
+    with open("slep_timestamps_data.json", "w") as file:
         file.seek(0)
         js.dump(slepdata, file)
         file.close()
-    return
 
 def provideData(client: socket):
     client.send(b"ok")
@@ -250,7 +245,7 @@ def provideData(client: socket):
     hourmin = int.from_bytes(client.recv(1), "big",signed=True)
     hourend = int.from_bytes(client.recv(1), "big",signed=True)
     print("{}, {} jours de {}h à {}h".format(date, dateDelta, hourmin, hourend))
-    with open("slep_data.json", "r+") as file:
+    with open("slep_data.json", "r") as file:
         data = js.load(file)
         file.close()
     try:
@@ -279,23 +274,27 @@ def provideTimestamps(client: socket.socket):
     client.send(b"ok")
     date:dt = dt.strptime(client.recv(10).decode("utf-8"),"%Y-%m-%d")
     dateDelta = int.from_bytes(client.recv(1), "big")
-    with open("slep_timestamps_data.json", "r+") as file:
+    with open("slep_timestamps_data.json", "r") as file:
         slepdata:dict=js.load(file)
         file.close()
     i:str
     for i in range(dateDelta):
         try:
-            if slepdata[(date-dtd(i)).strftime("%Y-%m-%d")][0]==-1:
+            sample:list = slepdata[(date-dtd(i)).strftime("%Y-%m-%d")]
+            if sample[0]==-1:
                 client.send(b"error")
                 continue
-            client.send(slepdata[(date-dtd(i)).strftime("%Y-%m-%d")][0].encode("utf-8"))
-            client.send(slepdata[(date-dtd(i)).strftime("%Y-%m-%d")][1].encode("utf-8"))
+            if len(sample)!=2:
+                client.send(b"inslp")
+                continue
+            client.send(sample[0].encode("utf-8"))
+            client.send(sample[1].encode("utf-8"))
         except KeyError:
-            client.send(b"keyerror")
+            client.send(b"keyer")
             print("keyerror",sys.exc_info()[-1].tb_lineno)
             lookForErrors("keyerror")
         except IndexError:
-            client.send(b"indexerror")
+            client.send(b"inder")
             print("indexerror",sys.exc_info()[-1].tb_lineno)
             lookForErrors("indexerror")
     client.close()
@@ -318,8 +317,7 @@ s.listen(0)
 errors = 0
 errors_names = [] 
 
-init = threading.Thread(processData())
-init.start()
+processData()
 
 while True:
     try:
@@ -330,10 +328,7 @@ while True:
         if content == b"slep":
             sleph = threading.Thread(saveData(client))
             sleph.start()
-        
-        if content == b"slep2":
-            sleph = threading.Thread(saveData2(client))
-            sleph.start()
+
 
         elif content == b"stop":
             client.send(b"ok")
@@ -373,21 +368,19 @@ while True:
     except ConnectionResetError:
         print("Client badly closed socket")
         lookForErrors("ConnectionResetError")
-    except Exception as exeption:
-        erName = exeption.__class__.__name__
-        print(erName,sys.exc_info()[-1].tb_lineno,exeption)
-        lookForErrors(erName)
+    # except Exception as exeption:
+    #     erName = exeption.__class__.__name__
+    #     print("---------Error Occured---------")
+    #     print(erName,sys.exc_info()[-1].tb_lineno,exeption)
+    #     lookForErrors(erName)
 
 #server logs
 if errors>0:
-    with open("server_log_data.json", "r+") as file:
-            today = str(dt.now().year) + "-" + str(dt.now().month) + "-" + str(dt.now().day)
-            
-            data = js.load(file)
-
-            data.update({today:[errors,errors_names]})
-
-            #print(data[today][-2:])
-            file.seek(0)
-            js.dump(data, file)
-            file.close()
+    with open("server_log_data.json", "r") as file:
+        data = js.load(file)
+        file.close()
+    today = str(dt.now().year) + "-" + str(dt.now().month) + "-" + str(dt.now().day)
+    data.update({today:[errors,errors_names]})
+    with open("server_log_data.json", "w") as file:
+        js.dump(data, file)
+        file.close()
