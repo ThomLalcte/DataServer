@@ -239,13 +239,21 @@ def processData(date:dt=dt.today()):
 
 def provideData(client: socket):
     client.send(b"ok")
+    datatype:bytes = client.recv(4)
+    filename = ""
+    if datatype==b"slep":
+        filename="slep_data.json"
+    
+    if datatype==b"wigg":
+        filename="wiggle_data.json"
+    
     #format: (string jour, int heure)
     date = client.recv(10).decode("utf-8")
     dateDelta = int.from_bytes(client.recv(1), "big")
     hourmin = int.from_bytes(client.recv(1), "big",signed=True)
     hourend = int.from_bytes(client.recv(1), "big",signed=True)
     print("{}, {} jours de {}h à {}h".format(date, dateDelta, hourmin, hourend))
-    with open("slep_data.json", "r") as file:
+    with open(filename, "r") as file:
         data = js.load(file)
         file.close()
     try:
@@ -344,7 +352,7 @@ while True:
             print("Ping command recived from: ",client.getpeername())
             client.close()
 
-        elif content == b"slepdata":
+        elif content == b"data":
             slepdh = threading.Thread(provideData(client))
             slepdh.start()
 
