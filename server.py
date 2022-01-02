@@ -4,6 +4,9 @@ import sys
 import json as js
 from datetime import datetime as dt
 from datetime import timedelta as dtd
+from matplotlib import pyplot as plt
+import matplotlib.dates as pltd
+
 
 meanHighValue = 1276000
 meanLowValue = 1160574
@@ -88,6 +91,8 @@ def saveData(client: socket.socket):
 
     if dt.now().minute%30<2:
         processData()
+        repairData()
+        repairData(filename="wiggle_data.json")
 
 def filterData(unfiltered):
     gaus=[]
@@ -124,58 +129,11 @@ def isThomInBed(client: socket.socket):
     print("itib call from {}".format(client.getpeername()))
     client.close()
 
-def processData(date:dt=dt.today()):
+def processData(date:dt=dt.today(),filename:str="cap_data.json"):
     datestr = date.strftime("%Y-%m-%d")
-    hier = (date-dtd(1)).strftime("%Y-%m-%d")
-    with open("cap_data.json", "r") as file:
+    with open(filename, "r") as file:
         filedata:dict = js.load(file)
         file.close()
-    # tapon de code qui sert à réparer les données. Jespère que t content que je l'ai fait pour toi
-    if (date.hour==10):
-        mean=filedata[datestr][9][1]+filedata[datestr][9][2]
-        filedata[datestr][9][1:3]=[int(mean/2), int(mean/2)]
-    if not hier in filedata:
-        fill = []
-        for i in range(date.hour):
-            fill+=[[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]]
-        filedata.update({hier:fill})
-    if not datestr in filedata:
-        fill = []
-        for i in range(date.hour):
-            fill+=[[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]]
-        filedata.update({datestr:fill})
-    if len(filedata[hier])<24:
-        for i in filedata[hier]:
-            while len(i)<20:
-                i.append(-1)
-        while len(filedata[hier])<24:
-            filedata[hier].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
-    for i in filedata[hier]:
-        if len(i)<20:
-            for ii in range(20-len(i)):
-                i.append(-1)
-    if len(filedata[datestr])<date.hour+1:
-        for i in filedata[datestr]:
-            while len(i)<20:
-                i.append(-1)
-        while len(filedata[datestr])<date.hour:
-            filedata[datestr].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
-        filedata[datestr].append([-1])
-        while len(filedata[datestr][date.hour])<int(date.minute/3):
-            filedata[datestr][date.hour].append(-1)
-    for i in filedata[datestr]:
-        if filedata[datestr].index(i)==date.hour:
-            if len(i)<int(date.minute/3):
-                for ii in range(int(date.minute/3)-len(i)):
-                    i.append(-1)
-            break
-        if len(i)<20:
-            for ii in range(20-len(i)):
-                i.append(-1)
-    with open("cap_data.json", "w") as file:
-        js.dump(filedata, file)
-        file.close()
-
     #file->dict object for analysis
     data:list[int]=[]
     time:list[dt]=[]
@@ -198,17 +156,23 @@ def processData(date:dt=dt.today()):
                 time.append((date).replace(hour=i,minute=ii*3))
 
     deriv=derivData(filterData(data[:]))
-
     minDeriv=min(deriv)
-    toa = time[deriv.index(minDeriv)].strftime("%H:%M")   #time of arrival
-    maxDeriv=max(deriv[deriv.index(minDeriv):])
+    i=deriv.index(minDeriv)
+    while minDeriv<-20000:
+        minDeriv=min(deriv[i:])
+        i=deriv.index(minDeriv)+10
+    toa = time[i].strftime("%H:%M")   #time of arrival
+    maxDeriv=max(deriv[i:])
+    while maxDeriv>15000:
+        maxDeriv=max(deriv[i:])
+        i=deriv.index(maxDeriv)+10
     tod = time[deriv.index(maxDeriv)].strftime("%H:%M")   #time of departure
     tts = (time[deriv.index(maxDeriv)]-time[deriv.index(minDeriv)])    #total time slept
 
     conditions=[]
     conditions.append(tts>dtd(hours=4))
     conditions.append(minDeriv<-5000)
-    conditions.append(minDeriv>-15000)
+    conditions.append(minDeriv>-20000)
     conditions.append(maxDeriv>5000)
     conditions.append(maxDeriv<15000)
     validSleepPattern:bool = sum(conditions)==len(conditions)
@@ -237,7 +201,7 @@ def processData(date:dt=dt.today()):
         js.dump(slepdata, file)
         file.close()
 
-def provideData(client: socket):
+def provideData(client: socket.socket):
     client.send(b"ok")
     datatype:bytes = client.recv(4)
     filename = ""
@@ -260,20 +224,20 @@ def provideData(client: socket):
         for i in range(dateDelta):
             for ii in range(hourmin,hourend):
                 if ii<0:
-                    # print("{}, {}h".format(dt.strptime(date,"%Y-%m-%d")-dtd(i+1),24+ii))
                     for iii in data[(dt.strptime(date,"%Y-%m-%d")-dtd(i+1)).strftime("%Y-%m-%d")][24+ii]:
                         client.send(int.to_bytes(iii,4,"big",signed=True))
                 else:
-                    # print("{}, {}h".format(dt.strptime(date,"%Y-%m-%d")-dtd(i),ii))
                     for iii in data[(dt.strptime(date,"%Y-%m-%d")-dtd(i)).strftime("%Y-%m-%d")][ii]:
                         client.send(int.to_bytes(iii,4,"big",signed=True))
     except KeyError:
-        client.send(b"keyerror")
         print("keyerror",sys.exc_info()[-1].tb_lineno)
+        print("cant find {} in {}".format((dt.strptime(date,"%Y-%m-%d")-dtd(i+1)).strftime("%Y-%m-%d"),filename))
+        client.send(int.to_bytes(-2,4,"big",signed=True))
         lookForErrors("keyerror")
     except IndexError:
-        client.send(b"indexerror")
         print("indexerror",sys.exc_info()[-1].tb_lineno)
+        print("cant find hour {} in {},{}".format(24+ii,(dt.strptime(date,"%Y-%m-%d")-dtd(i+1)).strftime("%Y-%m-%d"),filename))
+        client.send(int.to_bytes(-3,4,"big",signed=True))
         lookForErrors("indexerror")
     client.close()
 
@@ -318,14 +282,69 @@ def lookForErrors(name):
     if not present:
         errors_names.append(name)
 
-s = socket.socket()         
+def repairData(date:dt=dt.today(), filename:str="cap_data.json"):
+    datestr = date.strftime("%Y-%m-%d")
+    hier = (date-dtd(1)).strftime("%Y-%m-%d")
+    with open(filename, "r") as file:
+        filedata:dict = js.load(file)
+        file.close()
+    # tapon de code qui sert à réparer les données. Jespère que t content que je l'ai fait pour toi
+    if (date.hour==10):
+        mean=filedata[datestr][9][1]+filedata[datestr][9][2]
+        filedata[datestr][9][1:3]=[int(mean/2), int(mean/2)]
+    if not hier in filedata:
+        fill = []
+        for i in range(date.hour):
+            fill+=[[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]]
+        filedata.update({hier:fill})
+    if not datestr in filedata:
+        fill = []
+        for i in range(date.hour):
+            fill+=[[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]]
+        filedata.update({datestr:fill})
+    if len(filedata[hier])<24:
+        for i in filedata[hier]:
+            while len(i)<20:
+                i.append(-1)
+        while len(filedata[hier])<24:
+            filedata[hier].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+    for i in filedata[hier]:
+        if len(i)<20:
+            for ii in range(20-len(i)):
+                i.append(-1)
+    if len(filedata[datestr])<date.hour+1:
+        for i in filedata[datestr]:
+            while len(i)<20:
+                i.append(-1)
+        while len(filedata[datestr])<date.hour:
+            filedata[datestr].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+        filedata[datestr].append([-1])
+        while len(filedata[datestr][date.hour])<int(date.minute/3):
+            filedata[datestr][date.hour].append(-1)
+    for i in filedata[datestr]:
+        if filedata[datestr].index(i)==date.hour:
+            if len(i)<int(date.minute/3):
+                for ii in range(int(date.minute/3)-len(i)):
+                    i.append(-1)
+            break
+        if len(i)<20:
+            for ii in range(20-len(i)):
+                i.append(-1)
+    with open(filename, "w") as file:
+        js.dump(filedata, file)
+        file.close()
 
+
+s = socket.socket()         
 s.bind(('0.0.0.0', 10000 ))
 s.listen(0)
 errors = 0
 errors_names = [] 
 
-processData()
+repairData()
+repairData(filename="wiggle_data.json")
+proh = threading.Thread(processData())
+proh.start()
 
 while True:
     try:
@@ -376,11 +395,11 @@ while True:
     except ConnectionResetError:
         print("Client badly closed socket")
         lookForErrors("ConnectionResetError")
-    # except Exception as exeption:
-    #     erName = exeption.__class__.__name__
-    #     print("---------Error Occured---------")
-    #     print(erName,sys.exc_info()[-1].tb_lineno,exeption)
-    #     lookForErrors(erName)
+    except Exception as exeption:
+        erName = exeption.__class__.__name__
+        print("---------Error Occured---------")
+        print(erName,sys.exc_info()[-1].tb_lineno,exeption)
+        lookForErrors(erName)
 
 #server logs
 if errors>0:
