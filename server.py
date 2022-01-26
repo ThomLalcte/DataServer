@@ -12,6 +12,7 @@ meanHighValue = 1276000
 meanLowValue = 1160574
 threshold =meanLowValue+(meanHighValue-meanLowValue)/2
 slepLastSample=0
+lastBootTime=dt.now()
 
 def saveDataOld(client: socket.socket):
     interval = 3
@@ -23,7 +24,7 @@ def saveDataOld(client: socket.socket):
     global slepLastSample
     slepLastSample = r
     today = dt.now().strftime("%Y-%m-%d")
-    with open("cap_data.json", "r") as file:
+    with open("data/cap_data.json", "r") as file:
         data = js.load(file)
         file.close()
 
@@ -37,15 +38,18 @@ def saveDataOld(client: socket.socket):
     else:
         data.update({today:[[int(r)]]})
 
-    with open("cap_data.json", "w") as file:
+    with open("data/cap_data.json", "w") as file:
         js.dump(data, file)
         file.close()
     if dt.now().minute%30<2:
         processData()
 
-def saveData(client: socket.socket):
+def saveSlepData(client: socket.socket):
     interval = 3
-    client.send(int.to_bytes((interval-dt.now().minute%interval)*60-dt.now().second,2,"big",signed=False))
+    eta=(interval-dt.now().minute%interval)*60-dt.now().second
+    if eta<interval/2*60:
+        eta+=interval*60
+    client.send(int.to_bytes(eta,2,"big",signed=False))
     slepQte = client.recv(4)
     wiggleQte = client.recv(4)
     client.close()
@@ -57,7 +61,7 @@ def saveData(client: socket.socket):
     slepLastSample = r
     today = dt.now().strftime("%Y-%m-%d")
 
-    with open("cap_data.json", "r") as file:
+    with open("data/cap_data.json", "r") as file:
         data = js.load(file)
         file.close()
     if today in data:   #aquisition de données
@@ -69,11 +73,11 @@ def saveData(client: socket.socket):
             data[today].append([int(r)])
     else:
         data.update({today:[[int(r)]]})
-    with open("cap_data.json", "w") as file:
+    with open("data/cap_data.json", "w") as file:
         js.dump(data, file)
         file.close()
 
-    with open("wiggle_data.json", "r") as file:
+    with open("data/wiggle_data.json", "r") as file:
         data = js.load(file)
         file.close()
     if today in data:   #aquisition de données
@@ -85,14 +89,15 @@ def saveData(client: socket.socket):
             data[today].append([int(w)])
     else:
         data.update({today:[[int(w)]]})
-    with open("wiggle_data.json", "w") as file:
+    with open("data/wiggle_data.json", "w") as file:
         js.dump(data, file)
         file.close()
 
     if dt.now().minute%30<2:
         processData()
         repairData()
-        repairData(filename="wiggle_data.json")
+        repairData(filename="data/wiggle_data.json")
+        repairBootGlitch()
 
 def filterData(unfiltered):
     gaus=[]
@@ -129,7 +134,7 @@ def isThomInBed(client: socket.socket):
     print("itib call from {}".format(client.getpeername()))
     client.close()
 
-def processData(date:dt=dt.today(),filename:str="cap_data.json"):
+def processData(date:dt=dt.today(),filename:str="data/cap_data.json"):
     datestr = date.strftime("%Y-%m-%d")
     with open(filename, "r") as file:
         filedata:dict = js.load(file)
@@ -160,12 +165,12 @@ def processData(date:dt=dt.today(),filename:str="cap_data.json"):
     i=deriv.index(minDeriv)
     while minDeriv<-20000:
         minDeriv=min(deriv[i:])
-        i=deriv.index(minDeriv)+10
+        i=min(deriv.index(minDeriv)+10,len(deriv)-1)
     toa = time[i].strftime("%H:%M")   #time of arrival
     maxDeriv=max(deriv[i:])
     while maxDeriv>15000:
         maxDeriv=max(deriv[i:])
-        i=deriv.index(maxDeriv)+10
+        i=min(deriv.index(maxDeriv)+10,len(deriv)-1)
     tod = time[deriv.index(maxDeriv)].strftime("%H:%M")   #time of departure
     tts = (time[deriv.index(maxDeriv)]-time[deriv.index(minDeriv)])    #total time slept
 
@@ -179,7 +184,7 @@ def processData(date:dt=dt.today(),filename:str="cap_data.json"):
 
     onlyValidSamples=-1!=min(data[:])
 
-    with open("slep_timestamps_data.json", "r") as file:
+    with open("data/slep_timestamps_data.json", "r") as file:
         slepdata=js.load(file)
         file.close()
     if datestr in slepdata:
@@ -196,7 +201,7 @@ def processData(date:dt=dt.today(),filename:str="cap_data.json"):
             slepdata.update({datestr:[-1]})
         else:
             slepdata.update({datestr:conditions})
-    with open("slep_timestamps_data.json", "w") as file:
+    with open("data/slep_timestamps_data.json", "w") as file:
         file.seek(0)
         js.dump(slepdata, file)
         file.close()
@@ -206,10 +211,10 @@ def provideData(client: socket.socket):
     datatype:bytes = client.recv(4)
     filename = ""
     if datatype==b"capp":
-        filename="cap_data.json"
+        filename="data/cap_data.json"
     
     if datatype==b"wigg":
-        filename="wiggle_data.json"
+        filename="data/wiggle_data.json"
     
     #format: (string jour, int heure)
     date = client.recv(10).decode("utf-8")
@@ -282,16 +287,16 @@ def lookForErrors(name):
     if not present:
         errors_names.append(name)
 
-def repairData(date:dt=dt.today(), filename:str="cap_data.json"):
+def repairData(date:dt=dt.today(), filename:str="data/cap_data.json"):
     datestr = date.strftime("%Y-%m-%d")
     hier = (date-dtd(1)).strftime("%Y-%m-%d")
     with open(filename, "r") as file:
         filedata:dict = js.load(file)
         file.close()
     # tapon de code qui sert à réparer les données. Jespère que t content que je l'ai fait pour toi
-    if (date.hour==10):
-        mean=filedata[datestr][9][1]+filedata[datestr][9][2]
-        filedata[datestr][9][1:3]=[int(mean/2), int(mean/2)]
+    # if (date.hour==10):
+    #     mean=filedata[datestr][9][1]+filedata[datestr][9][2]
+    #     filedata[datestr][9][1:3]=[int(mean/2), int(mean/2)]
     if not hier in filedata:
         fill = []
         for i in range(date.hour):
@@ -334,6 +339,22 @@ def repairData(date:dt=dt.today(), filename:str="cap_data.json"):
         js.dump(filedata, file)
         file.close()
 
+def repairBootGlitch():
+    datestr = dt.today().strftime("%Y-%m-%d")
+    if lastBootTime-dt.now()>dtd(minutes=10):
+        return
+    with open("cap_data.json", "r") as file:
+        filedata:dict = js.load(file)
+        file.close()
+    summ = 0
+    try:
+        filedata[datestr][-1][-3:]=filterData(filedata[datestr][-1][-3:])
+    except:
+        print("repairBootGlitch a chié")
+        erName = exeption.__class__.__name__
+        print(erName,sys.exc_info()[-1].tb_lineno,exeption)
+        lookForErrors(erName)
+    
 
 s = socket.socket()         
 s.bind(('0.0.0.0', 10000 ))
@@ -342,7 +363,7 @@ errors = 0
 errors_names = [] 
 
 repairData()
-repairData(filename="wiggle_data.json")
+repairData(filename="data/wiggle_data.json")
 proh = threading.Thread(processData())
 proh.start()
 
@@ -353,7 +374,7 @@ while True:
         client_name = client.getpeername()
 
         if content == b"slep":
-            sleph = threading.Thread(saveData(client))
+            sleph = threading.Thread(saveSlepData(client))
             sleph.start()
 
 
@@ -403,11 +424,11 @@ while True:
 
 #server logs
 if errors>0:
-    with open("server_log_data.json", "r") as file:
+    with open("data/server_log_data.json", "r") as file:
         data = js.load(file)
         file.close()
     today = str(dt.now().year) + "-" + str(dt.now().month) + "-" + str(dt.now().day)
     data.update({today:[errors,errors_names]})
-    with open("server_log_data.json", "w") as file:
+    with open("data/server_log_data.json", "w") as file:
         js.dump(data, file)
         file.close()
