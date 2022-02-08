@@ -6,98 +6,81 @@ from datetime import datetime as dt
 from datetime import timedelta as dtd
 from matplotlib import pyplot as plt
 import matplotlib.dates as pltd
-
+import struct
 
 meanHighValue = 1276000
 meanLowValue = 1160574
 threshold =meanLowValue+(meanHighValue-meanLowValue)/2
-slepLastSample=0
+capLastSample=0
 lastBootTime=dt.now()
+wake:int=0
 
-def saveDataOld(client: socket.socket):
-    interval = 3
-    client.send(int.to_bytes((interval-dt.now().minute%interval)*60-dt.now().second,2,"big",signed=False))
-    slepQte = client.recv(4)
-    client.close()
-    r = int.from_bytes(slepQte, "big")
-    print("slep repport: ",r)
-    global slepLastSample
-    slepLastSample = r
-    today = dt.now().strftime("%Y-%m-%d")
-    with open("data/cap_data.json", "r") as file:
-        data = js.load(file)
-        file.close()
-
-    if today in data:   #aquisition de données
-        if len(data[today]) > dt.now().hour:
-            data[today][dt.now().hour].append(int(r))
-        else:
-            while dt.now().hour-1 > len(data[today]):
-                data[today].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
-            data[today].append([int(r)])
+def AppendDatatoFile(fileName:str,data):
+    hour=dt.now().hour.__str__()
+    try: 
+        with open(fileName, "r+") as file:
+            filedata = js.load(file)
+            file.close()
+    except FileNotFoundError:
+        filedata={}
+    if hour in filedata.keys():
+        filedata[hour].append(data)
     else:
-        data.update({today:[[int(r)]]})
-
-    with open("data/cap_data.json", "w") as file:
-        js.dump(data, file)
+        filedata.update({hour:[data]})
+    with open(fileName, "w") as file:
+        js.dump(filedata, file)
         file.close()
-    if dt.now().minute%30<2:
-        processData()
 
-def saveSlepData(client: socket.socket):
+def loadFromFile(dataType,date:dt,dateDelta:int):
+    filedata:dict={}
+    for i in range(dateDelta+1):
+        day = (date-dtd(i)).strftime("%Y-%m-%d")
+        filedata.update({day:{}})
+        if dataType==b"capp" or dataType=="capp":
+            filename="data/cap/"+day+".json"
+        
+        if dataType==b"wigg" or dataType=="wigg":
+            filename="data/wiggle/"+day+".json"
+
+        if dataType==b"temp" or dataType=="temp":
+            filename="data/temp/"+day+".json"
+        
+        try:
+            with open(filename, "r") as file:
+                filedata[day].update(js.load(file))
+                file.close()
+        except FileNotFoundError:
+            continue
+    return filedata
+
+def HandleSlepClient(client: socket.socket):
     interval = 3
+    buffer=b""
     eta=(interval-dt.now().minute%interval)*60-dt.now().second
     if eta<interval/2*60:
         eta+=interval*60
-    client.send(int.to_bytes(eta,2,"big",signed=False))
+    buffer+=wake.to_bytes(2,"big",signed=False)
+    buffer+=eta.to_bytes(2,"big",signed=False)
+    client.send(buffer)
     slepQte = client.recv(4)
     wiggleQte = client.recv(4)
+    tempRaw = client.recv(4)
     client.close()
-    r = int.from_bytes(slepQte, "big")
+    c = int.from_bytes(slepQte, "big")
     w = int.from_bytes(wiggleQte, "big")
-    print("slep repport: ",r)
+    t = int.from_bytes(tempRaw, "big")
+    print("slep repport: ",c)
     print("wiggle repport: ",w)
-    global slepLastSample
-    slepLastSample = r
+    print("temperature repport: ",t*0.0078125)
+    global capLastSample
+    capLastSample = c
     today = dt.now().strftime("%Y-%m-%d")
-
-    with open("data/cap_data.json", "r") as file:
-        data = js.load(file)
-        file.close()
-    if today in data:   #aquisition de données
-        if len(data[today]) > dt.now().hour:
-            data[today][dt.now().hour].append(int(r))
-        else:
-            while dt.now().hour-1 > len(data[today]):
-                data[today].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
-            data[today].append([int(r)])
-    else:
-        data.update({today:[[int(r)]]})
-    with open("data/cap_data.json", "w") as file:
-        js.dump(data, file)
-        file.close()
-
-    with open("data/wiggle_data.json", "r") as file:
-        data = js.load(file)
-        file.close()
-    if today in data:   #aquisition de données
-        if len(data[today]) > dt.now().hour:
-            data[today][dt.now().hour].append(int(w))
-        else:
-            while dt.now().hour-1 > len(data[today]):
-                data[today].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
-            data[today].append([int(w)])
-    else:
-        data.update({today:[[int(w)]]})
-    with open("data/wiggle_data.json", "w") as file:
-        js.dump(data, file)
-        file.close()
+    AppendDatatoFile("data/wiggle/"+today+".json",w)
+    AppendDatatoFile("data/cap/"+today+".json",c)
+    AppendDatatoFile("data/temp/"+today+".json",t)
 
     if dt.now().minute%30<2:
-        processData()
-        repairData()
-        repairData(filename="data/wiggle_data.json")
-        repairBootGlitch()
+        processData(dt.now(),"capp")
 
 def filterData(unfiltered):
     gaus=[]
@@ -130,36 +113,36 @@ def meanData(data):
 
 def isThomInBed(client: socket.socket):
     client.send(b"ok")
-    client.send(int.to_bytes(slepLastSample<threshold,1,"big"))
+    client.send(int.to_bytes(capLastSample<threshold,1,"big"))
     print("itib call from {}".format(client.getpeername()))
     client.close()
 
-def processData(date:dt=dt.today(),filename:str="data/cap_data.json"):
+def processData(date:dt,dataType:str):
     datestr = date.strftime("%Y-%m-%d")
-    with open(filename, "r") as file:
-        filedata:dict = js.load(file)
-        file.close()
+    filedata = loadFromFile(dataType,date,1)
     #file->dict object for analysis
     data:list[int]=[]
     time:list[dt]=[]
-    for i in range(20,24):
-        for ii in range(20):
-            try:
-                point = filedata[(date-dtd(1)).strftime("%Y-%m-%d")][i][ii]
-            except IndexError:
-                point = -1
-            data.append(point)
-            time.append((date-dtd(1)).replace(hour=i,minute=ii*3))
-    for i in range(min(date.hour,14)):
-        for ii in range(20):
-            try:
-                point = filedata[datestr][i][ii]
-            except IndexError:
-                point = -1
-            if point>10:
-                data.append(point)
-                time.append((date).replace(hour=i,minute=ii*3))
+    for ii in range(-4,min(date.hour+1,14)):#on itère les heures demandées
+        day = (date-dtd(ii<0)).strftime("%Y-%m-%d")#contien la journée corrigé pour les heures négative (-1 jour)
+        if not day in filedata.keys() or not str(ii) in filedata[day].keys():#si le jour ou l'heure est pas listé on envoie des -1
+            for iii in range(20):
+                data.append(-1)
+                time.append((date-dtd(ii<0)).replace(hour=ii+24*(ii<0),minute=iii*3))
+            continue
+        hour = str(ii+24*(ii<0))#contient heure corrigée pour heures négatives
+        lenii=min(len(filedata[day][hour]),20)
+        for iii in range(lenii):#envoi les minutes qui existent
+            data.append(filedata[day][hour][iii])
+            time.append((date-dtd(ii<0)).replace(hour=ii+24*(ii<0),minute=iii*3))
+        for iii in range(20-lenii):#envoi de -1 pour ceux qui exisntent pas
+            data.append(-1)
+            time.append((date-dtd(ii<0)).replace(hour=ii+24*(ii<0),minute=(iii+lenii)*3))
 
+    # plt.plot(time,data)
+    # plt.gca().xaxis.set_major_formatter(pltd.DateFormatter('%H:%M'))
+    # plt.legend()
+    # plt.show()
     deriv=derivData(filterData(data[:]))
     minDeriv=min(deriv)
     i=deriv.index(minDeriv)
@@ -209,41 +192,30 @@ def processData(date:dt=dt.today(),filename:str="data/cap_data.json"):
 def provideData(client: socket.socket):
     client.send(b"ok")
     datatype:bytes = client.recv(4)
-    filename = ""
-    if datatype==b"capp":
-        filename="data/cap_data.json"
-    
-    if datatype==b"wigg":
-        filename="data/wiggle_data.json"
     
     #format: (string jour, int heure)
     date = client.recv(10).decode("utf-8")
+    datedt = dt.strptime(date,"%Y-%m-%d")
     dateDelta = int.from_bytes(client.recv(1), "big")
     hourmin = int.from_bytes(client.recv(1), "big",signed=True)
     hourend = int.from_bytes(client.recv(1), "big",signed=True)
-    print("{}, {}, {} jours de {}h à {}h".format(filename, date, dateDelta, hourmin, hourend))
-    with open(filename, "r") as file:
-        data = js.load(file)
-        file.close()
-    try:
-        for i in range(dateDelta):
-            for ii in range(hourmin,hourend):
-                if ii<0:
-                    for iii in data[(dt.strptime(date,"%Y-%m-%d")-dtd(i+1)).strftime("%Y-%m-%d")][24+ii]:
-                        client.send(int.to_bytes(iii,4,"big",signed=True))
-                else:
-                    for iii in data[(dt.strptime(date,"%Y-%m-%d")-dtd(i)).strftime("%Y-%m-%d")][ii]:
-                        client.send(int.to_bytes(iii,4,"big",signed=True))
-    except KeyError:
-        print("keyerror",sys.exc_info()[-1].tb_lineno)
-        print("cant find {} in {}".format((dt.strptime(date,"%Y-%m-%d")-dtd(i+1)).strftime("%Y-%m-%d"),filename))
-        client.send(int.to_bytes(-2,4,"big",signed=True))
-        lookForErrors("keyerror")
-    except IndexError:
-        print("indexerror",sys.exc_info()[-1].tb_lineno)
-        print("cant find hour {} in {},{}".format(24+ii,(dt.strptime(date,"%Y-%m-%d")-dtd(i+1)).strftime("%Y-%m-%d"),filename))
-        client.send(int.to_bytes(-3,4,"big",signed=True))
-        lookForErrors("indexerror")
+    
+    print("{}, {}, {} jours de {}h à {}h".format(datatype, date, dateDelta, hourmin, hourend))    
+    
+    filedata = loadFromFile(datatype,datedt,dateDelta+(hourmin<0))
+
+    for i in range(dateDelta):#on itère les dates demandeés
+        for ii in range(hourmin,hourend):#on itère les heures demandées
+            day = (datedt-dtd(i+(ii<0))).strftime("%Y-%m-%d")#contien la journée corrigé pour les heures négative (-1 jour)
+            if not day in filedata.keys() or not str(ii+24*(ii<0)) in filedata[day].keys():#si le jour ou l'heure est pas listé on envoie des -1
+                for iii in range(20):
+                    client.send(int.to_bytes(-1,4,"big",signed=True))
+                continue
+            hour = str(ii+24*(ii<0))#contient heure corrigée pour heures négatives
+            for iii in filedata[day][hour]:#envoi les minutes qui existent
+                client.send(int.to_bytes(iii,4,"big",signed=True))
+            for iii in range(20-len(filedata[day][hour])):#envoi de -1 pour ceux qui exisntent pas
+                client.send(int.to_bytes(-1,4,"big",signed=True))
     client.close()
 
 def provideTimestamps(client: socket.socket):
@@ -289,7 +261,7 @@ def lookForErrors(name):
 
 def repairData(date:dt=dt.today(), filename:str="data/cap_data.json"):
     datestr = date.strftime("%Y-%m-%d")
-    hier = (date-dtd(1)).strftime("%Y-%m-%d")
+    previous = (date-dtd(1)).strftime("%Y-%m-%d")
     with open(filename, "r") as file:
         filedata:dict = js.load(file)
         file.close()
@@ -297,32 +269,36 @@ def repairData(date:dt=dt.today(), filename:str="data/cap_data.json"):
     # if (date.hour==10):
     #     mean=filedata[datestr][9][1]+filedata[datestr][9][2]
     #     filedata[datestr][9][1:3]=[int(mean/2), int(mean/2)]
-    if not hier in filedata:
+    if not previous in filedata:
         fill = []
         for i in range(date.hour):
-            fill+=[[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]]
-        filedata.update({hier:fill})
+            fill+=[[-1]]
+            # fill+=[[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]]
+        filedata.update({previous:fill})
     if not datestr in filedata:
         fill = []
         for i in range(date.hour):
-            fill+=[[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]]
+            fill+=[[-1]]
+            # fill+=[[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1]]
         filedata.update({datestr:fill})
-    if len(filedata[hier])<24:
-        for i in filedata[hier]:
-            while len(i)<20:
-                i.append(-1)
-        while len(filedata[hier])<24:
-            filedata[hier].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
-    for i in filedata[hier]:
-        if len(i)<20:
-            for ii in range(20-len(i)):
-                i.append(-1)
+    if len(filedata[previous])<24:
+        # for i in filedata[previous]:
+        #     while len(i)<20:
+        #         i.append(-1)
+        while len(filedata[previous])<24:
+            filedata[previous].append([-1])
+            # filedata[previous].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+    # for i in filedata[previous]:
+    #     if len(i)<20:
+    #         for ii in range(20-len(i)):
+    #             i.append(-1)
     if len(filedata[datestr])<date.hour+1:
         for i in filedata[datestr]:
             while len(i)<20:
                 i.append(-1)
         while len(filedata[datestr])<date.hour:
-            filedata[datestr].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+            filedata[datestr].append([-1])
+            # filedata[datestr].append([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
         filedata[datestr].append([-1])
         while len(filedata[datestr][date.hour])<int(date.minute/3):
             filedata[datestr][date.hour].append(-1)
@@ -349,10 +325,10 @@ def repairBootGlitch():
     summ = 0
     try:
         filedata[datestr][-1][-3:]=filterData(filedata[datestr][-1][-3:])
-    except:
+    except Exception as ex:
         print("repairBootGlitch a chié")
-        erName = exeption.__class__.__name__
-        print(erName,sys.exc_info()[-1].tb_lineno,exeption)
+        erName = ex.__class__.__name__
+        print(erName,sys.exc_info()[-1].tb_lineno,ex)
         lookForErrors(erName)
     
 
@@ -362,10 +338,10 @@ s.listen(0)
 errors = 0
 errors_names = [] 
 
-repairData()
-repairData(filename="data/wiggle_data.json")
-proh = threading.Thread(processData())
+proh = threading.Thread(processData(dt.now(),"capp"))
 proh.start()
+print("--------------------------------------")
+print("boot time: "+dt.now().strftime("%a %m-%d-%H:%M"))
 
 while True:
     try:
@@ -374,9 +350,8 @@ while True:
         client_name = client.getpeername()
 
         if content == b"slep":
-            sleph = threading.Thread(saveSlepData(client))
+            sleph = threading.Thread(HandleSlepClient(client))
             sleph.start()
-
 
         elif content == b"stop":
             client.send(b"ok")
@@ -432,3 +407,6 @@ if errors>0:
     with open("data/server_log_data.json", "w") as file:
         js.dump(data, file)
         file.close()
+
+print("--------------------------------------")
+print("shutdown time: "+dt.now().strftime("%a %m-%d-%H:%M"))
