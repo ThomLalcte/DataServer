@@ -1,0 +1,4206 @@
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+/dataServer
+/root
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+/dataServer
+/root
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+cringe
+/dataServer
+/dataServer
+--------------------------------------
+boot time: Fri 03-11-00:45
+/dataServer
+/dataServer
+--------------------------------------
+boot time: Fri 03-11-00:53
+b'temp', 2022-03-11, 5 jours de -4h à 20h
+slep repport:  0
+wiggle repport:  456
+temperature repport:  22.046875
+---------Error Occured---------
+FileNotFoundError 357 [Errno 2] No such file or directory: 'data/wiggle/2022-03-13.json'
+slep repport:  0
+wiggle repport:  456
+temperature repport:  22.046875
+---------Error Occured---------
+FileNotFoundError 357 [Errno 2] No such file or directory: 'data/wiggle/2022-03-13.json'
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.046875
+---------Error Occured---------
+FileNotFoundError 357 [Errno 2] No such file or directory: 'data/wiggle/2022-03-13.json'
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.109375
+---------Error Occured---------
+FileNotFoundError 357 [Errno 2] No such file or directory: 'data/wiggle/2022-03-13.json'
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.109375
+---------Error Occured---------
+FileNotFoundError 357 [Errno 2] No such file or directory: 'data/wiggle/2022-03-13.json'
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.171875
+---------Error Occured---------
+FileNotFoundError 357 [Errno 2] No such file or directory: 'data/wiggle/2022-03-13.json'
+b'temp', 2022-03-13, 5 jours de -4h à 20h
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.171875
+---------Error Occured---------
+FileNotFoundError 357 [Errno 2] No such file or directory: 'data/wiggle/2022-03-13.json'
+stop command recived from:  ('127.0.0.1', 36374)
+Stopping server
+/dataServer
+/dataServer
+--------------------------------------
+boot time: Sun 03-13-11:45
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.796875
+b'temp', 2022-03-13, 5 jours de -4h à 20h
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  23.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.859375
+b'temp', 2022-03-13, 5 jours de -4h à 20h
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.296875
+b'temp', 2022-03-13, 5 jours de -4h à 20h
+b'temp', 2022-03-13, 5 jours de 0h à 24h
+slep repport:  0
+wiggle repport:  0
+temperature repport:  22.171875
+stop command recived from:  ('127.0.0.1', 48802)
+Stopping server
+--------------------------------------
+shutdown time: Sun 03-13-23:18
+/Travail/dataServer
+/Travail/dataServer
+--------------------------------------
+boot time: Sun 03-13-23:56
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.171875
+b'temp', 2022-03-13, 5 jours de 0h à 24h
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.984375
+b'temp', 2022-03-14, 5 jours de 0h à 24h
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  17.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.609375
+b'temp', 2022-03-15, 5 jours de 0h à 24h
+b'temp', 2022-03-15, 5 jours de 0h à 24h
+b'temp', 2022-03-15, 5 jours de 0h à 24h
+b'temp', 2022-03-15, 5 jours de 0h à 24h
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  456
+temperature repport:  18.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  18.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  19.734375
+slep repport:  0
+wiggle repport:  456
+temperature repport:  19.984375
+slep repport:  0
+wiggle repport:  456
+temperature repport:  20.171875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.171875
+slep repport:  0
+wiggle repport:  456
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.984375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.796875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.671875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.609375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.546875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.859375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.734375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.046875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  20.921875
+slep repport:  0
+wiggle repport:  456
+temperature repport:  21.234375
+slep repport:  0
+wiggle repport:  456
+temperature repport:  21.234375
+slep repport:  0
+wiggle repport:  456
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.484375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.421875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.109375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.234375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.296875
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.359375
+slep repport:  0
+wiggle repport:  0
+temperature repport:  21.234375
+slep repport:  0
