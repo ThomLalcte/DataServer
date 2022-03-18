@@ -64,20 +64,20 @@ def HandleSlepClient(client: socket.socket):
     client.send(buffer)
     slepQte = client.recv(4)
     wiggleQte = client.recv(4)
-    tempRaw = client.recv(4)
+    # tempRaw = client.recv(4)
     client.close()
     c = int.from_bytes(slepQte, "big")
     w = int.from_bytes(wiggleQte, "big")
-    t = int.from_bytes(tempRaw, "big")
+    # t = int.from_bytes(tempRaw, "big")
     print("slep repport: ",c)
     print("wiggle repport: ",w)
-    print("temperature repport: ",t*0.0078125)
+    # print("temperature repport: ",t*0.0078125)
     global capLastSample
     capLastSample = c
     today = dt.now().strftime("%Y-%m-%d")
     AppendDatatoFile("data/wiggle/"+today+".json",w)
     AppendDatatoFile("data/cap/"+today+".json",c)
-    AppendDatatoFile("data/temp/"+today+".json",t)
+    # AppendDatatoFile("data/temp/"+today+".json",t)
 
     if dt.now().minute%30<2:
         processData(dt.now(),"capp")
