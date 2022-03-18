@@ -7,6 +7,7 @@ from datetime import timedelta as dtd
 from matplotlib import pyplot as plt
 import matplotlib.dates as pltd
 import struct
+import os
 
 meanHighValue = 1276000
 meanLowValue = 1160574
@@ -15,9 +16,12 @@ capLastSample=0
 lastBootTime=dt.now()
 wake:int=0
 
+print(os.path.dirname(os.path.abspath(__file__)))
+print(os.path.abspath(os.getcwd()))
+
 def AppendDatatoFile(fileName:str,data):
     hour=dt.now().hour.__str__()
-    try: 
+    try:
         with open(fileName, "r+") as file:
             filedata = js.load(file)
             file.close()
