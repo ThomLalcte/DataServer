@@ -44,7 +44,7 @@ def loadFromFile(dataType,date:dt,dateDelta:int):
             filename="data/cap/"+day+".json"
         
         if dataType==b"wigg" or dataType=="wigg":
-            filename="data/wiggle/"+day+".json"
+            filename="data/piezo/"+day+".json"
 
         if dataType==b"temp" or dataType=="temp":
             filename="data/temp/"+day+".json"
@@ -70,22 +70,22 @@ def HandleSlepClient(client: socket.socket):
     buffer+=eta.to_bytes(2,"big",signed=False)
     client.send(buffer)
     slepQte = client.recv(4)
-    wiggleQte = client.recv(4)
+    piezoQte = client.recv(4)
     # tempRaw = client.recv(4)
     lightQte = client.recv(2)
     client.close()
     c = int.from_bytes(slepQte, "big")
-    w = int.from_bytes(wiggleQte, "big")
+    w = int.from_bytes(piezoQte, "big")
     # t = int.from_bytes(tempRaw, "big")
     l = int.from_bytes(lightQte, "big")
     print("slep repport: ",c)
-    print("wiggle repport: ",w)
+    print("piezo repport: ",w)
     # print("temperature repport: ",t*0.0078125)
     print("light repport: ",l)
     global capLastSample
     capLastSample = c
     today = dt.now().strftime("%Y-%m-%d")
-    AppendDatatoFile("data/wiggle/"+today+".json",w)
+    AppendDatatoFile("data/piezo/"+today+".json",w)
     AppendDatatoFile("data/cap/"+today+".json",c)
     # AppendDatatoFile("data/temp/"+today+".json",t)
     AppendDatatoFile("data/light/"+today+".json",l)
