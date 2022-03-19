@@ -49,6 +49,9 @@ def loadFromFile(dataType,date:dt,dateDelta:int):
         if dataType==b"temp" or dataType=="temp":
             filename="data/temp/"+day+".json"
         
+        if dataType==b"ligt" or dataType=="ligt":
+            filename="data/light/"+day+".json"
+            
         try:
             with open(filename, "r") as file:
                 filedata[day].update(js.load(file))
