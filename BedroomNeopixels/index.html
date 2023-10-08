@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Esp8266 NeoPixel Controler</title>
+    <style>
+        body {
+            background-color: #254962;
+            font-family: Arial;
+            Color: rgb(255, 255, 255);
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"/>
+    <!-- <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" /> -->
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <h1>Emy's Neopixel</h1>
+        <p>Uptime: %02d:%02d:%02d</p>
+        <br>
+        <h2>Solide</h2>
+        <form action="" name="pick" method="post">
+            <input type="color" name="c" value="%s" onchange="document.forms['pick'].submit();" />
+            &emsp;
+            <input type="hidden" name="mode" value="single" />
+            <button onclick="document.forms['pick'].submit();"> Set color </button>
+            <br><br>
+        </form>
+        <h2>Arc-en-ciel</h2>
+        <form action="" name="rainbow" method="post">
+            <input type="hidden" name="mode" value="Rainbow" />
+            <table style="margin-left: auto; margin-right: auto;">
+                <tr>
+                    <td>Intensité</td>
+                    <td>
+                        <input type="range" value="50" name="speed" onchange="document.forms['rainbow'].submit();">
+                    </td>
+                    <td>
+                        <button onclick="document.forms['rainbow'].submit();">Rainbow</button>
+                    </td>
+                </tr>
+                <!-- add a switch to toggle fade overtime -->
+                <!-- Rounded switch -->
+                <tr>
+                    <td>
+                        Fade
+                    </td>
+                    <td>
+                        <input type="range" value="5" name="speed" onchange="document.forms['rainbow'].submit();">
+                    </td>
+                    <td>
+                        <input type="checkbox" name="fade" value="0" %s>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Fréquence
+                    </td>
+                    <td>
+                        <input type="range" value="5" name="freq" onchange="document.forms['rainbow'].submit();">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>
