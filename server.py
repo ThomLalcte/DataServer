@@ -65,21 +65,23 @@ def loadFromFile(dataType, date: dt, dateDelta: int):
 
 
 def HandleSlepClient(client: socket.socket):
-    interval = 3
+    interval = 180
     buffer = b""
-    eta = (interval-dt.now(pytz.timezone('Canada/Eastern')).minute % interval)*60-dt.now().second
-    if eta < interval/2*60:
-        eta += interval*60
+    eta = interval-(dt.now(pytz.timezone('Canada/Eastern')
+                           ).minute * 60 + dt.now(pytz.timezone('Canada/Eastern')).second) % interval
+    if eta < interval/2:
+        eta += interval
     buffer += eta.to_bytes(2, "little", signed=False)
     client.send(buffer)
-    slepQte = client.recv(4)
+    slepQte = client.recv(8)
     client.close()
-    c = int.from_bytes(slepQte, "big")
+    c = int.from_bytes(slepQte, "little")
     print("slep repport: ", c)
     # append to file with timezone correction timestamp, value
     with open(f"data/cap/{dt.now(pytz.timezone('Canada/Eastern')).strftime('%Y-%m-%d')}.csv", "a") as file:
         # save as timestamp, value
-        file.write(f"{dt.now(pytz.timezone('Canada/Eastern')).timestamp()},{c}\n")
+        file.write(
+            f"{round(dt.now(pytz.timezone('Canada/Eastern')).timestamp())};{c}\n")
         file.close()
 
 

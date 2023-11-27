@@ -1,0 +1,34 @@
+{
+    "stats": {
+        "presence": 60355.028044505416,
+        "absence": 62670.1111111111
+    },
+    "alarms": {
+        "weekdays": {
+            "monday": {
+                "08:30": "strong"
+            },
+            "tuesday": {
+                "08:30": "strong"
+            },
+            "wednesday": {
+                "08:00": "strong"
+            },
+            "thursday": {
+                "08:30": "strong"
+            },
+            "friday": {
+                "08:30": "strong"
+            },
+            "saturday": {
+                "11:00": "weak"
+            },
+            "sunday": {
+                "11:00": "weak",
+                "22:15": "weak"
+            }
+        },
+        "special": {}
+    },
+    "silence": {}
+}
