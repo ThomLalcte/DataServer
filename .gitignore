@@ -9,5 +9,6 @@ refEmy.csv
 refThom.csv
 crontabOut.txt
 __pycache__/
-activity.log
 cronOutRooster.txt
+rooster.log
+*.log
